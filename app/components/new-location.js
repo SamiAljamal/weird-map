@@ -11,7 +11,8 @@ export default Ember.Component.extend({
         name: this.get('name'),
         description: this.get('description'),
         latitude: this.get('latitude'),
-        longitude: this.get('longitude')
+        longitude: this.get('longitude'),
+        category: this.get('category')
       };
       this.set('addNewLocation', false);
       this.sendAction('saveLocation', params);
