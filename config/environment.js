@@ -13,6 +13,13 @@ module.exports = function(environment) {
       }
     },
 
+    firebase: {
+      apiKey: "AIzaSyBeXh0sPvkT61rJhis0zo_yfDnV8gpOBZM",
+    authDomain: "weird-map.firebaseapp.com",
+    databaseURL: "https://weird-map.firebaseio.com",
+    storageBucket: "weird-map.appspot.com",
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
