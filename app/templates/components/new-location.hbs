@@ -20,6 +20,14 @@
       <label for="category">Category</label>
       {{input value=category id="category"}}
     </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      {{input value=website id="website"}}
+    </div>
+    <div class="form-group">
+      <label for="streetview">Street View Link</label>
+      {{input value=streetview id="streetview"}}
+    </div>
     <button {{action 'saveLocation' location}}>Save</button>
   </form>
 {{else}}

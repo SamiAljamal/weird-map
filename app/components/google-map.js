@@ -29,7 +29,7 @@ export default Ember.Component.extend({
           title: name,
           icon: '../../assets/images/entertainment.png'
         });
-        var contentString = '<a href="' + location.get('website') + '"><h3>' + location.get('name') + '</h3></a>' + '<br>' + location.get('description');
+        var contentString = '<a href="' + location.get('website') + '" target="_blank"><h3>' + location.get('name') + '</h3></a>' + '<br>' + location.get('description') + '<br>' + '<a href="' + location.get('streetview') + '" target="_blank">Street View</a>';
 
         //add info window to marker, close other info window when opening a new one
         google.maps.event.addListener(marker, 'click', function() {

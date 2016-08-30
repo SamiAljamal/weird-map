@@ -6,5 +6,6 @@ export default DS.Model.extend({
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
   category: DS.attr(),
-  website: DS.attr()
+  website: DS.attr(),
+  streetview: DS.attr()
 });
