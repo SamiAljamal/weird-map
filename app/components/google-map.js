@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   second: [46.522462, -122.665674],
   third: [47.522462, -122.665674],
   fourth: [48.522462, -122.665674],
+
+  //automatically runs if component is included in template
   didInsertElement() {
       var infoWindow;
       var container = this.$('.map-display')[0];
@@ -17,6 +19,7 @@ export default Ember.Component.extend({
       };
       var fullMap = this.get('map').findMap(container, options);
 
+      // loop through locations on home page and create markers & info windows for each
       this.model.forEach(function(location){
         var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
         var name = location.get('name');
@@ -26,7 +29,9 @@ export default Ember.Component.extend({
           title: name,
           icon: '../../assets/images/entertainment.png'
         });
-        var contentString = '<a href="' + location.get('website') + '"><h2>' + location.get('name') + '</h2></a>' + '<br>' + location.get('description');
+        var contentString = '<a href="' + location.get('website') + '"><h3>' + location.get('name') + '</h3></a>' + '<br>' + location.get('description');
+
+        //add info window to marker, close other info window when opening a new one
         google.maps.event.addListener(marker, 'click', function() {
           if (infoWindow !== void 0) {
             infoWindow.close();
