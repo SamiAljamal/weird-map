@@ -2,12 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   map: Ember.inject.service('google-map'),
+
   first: [45.522462, -122.665674],
   second: [46.522462, -122.665674],
   third: [47.522462, -122.665674],
   fourth: [48.522462, -122.665674],
   didInsertElement(model) {
-      console.log(model);
+      var infoWindow;
       var container = this.$('.map-display')[0];
       var options = {
         center: this.get('map').center(45.522462, -122.665674),
@@ -15,7 +16,6 @@ export default Ember.Component.extend({
         styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
       };
       var fullMap = this.get('map').findMap(container, options);
-      var map = this.get('map');
 
       this.model.forEach(function(location){
         var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
@@ -26,14 +26,18 @@ export default Ember.Component.extend({
           title: name
         });
         var contentString = '<h2>' + location.get('name') + '</h2>' + '<br>' + location.get('description');
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-        marker.addListener('click', function() {
-          infowindow.open(fullMap, marker);
+        google.maps.event.addListener(marker, 'click', function() {
+          if (infoWindow !== void 0) {
+            infoWindow.close();
+          }
+          infoWindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+          infoWindow.open(fullMap, marker);
         });
         marker.setMap(fullMap);
       });
+
     }
     // showRouteMap() {
     //   var container = this.$('.map-display')[0];
