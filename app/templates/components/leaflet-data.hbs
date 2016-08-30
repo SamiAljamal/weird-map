@@ -1,0 +1,9 @@
+{{#leaflet-map lat=lat lng=lng zoom=zoom as |layers|}}
+  {{layers.tile url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+  {{#layers.geoJSON geoJSON=neighborhood}}
+    {{#each neighborhood as |n|}}
+    {{n.properties.name}}
+    {{/each}}
+
+  {{/layers.geoJSON}}
+{{/leaflet-map}}
