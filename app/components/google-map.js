@@ -6,20 +6,18 @@ export default Ember.Component.extend({
   second: [46.522462, -122.665674],
   third: [47.522462, -122.665674],
   fourth: [48.522462, -122.665674],
-  actions: {
-    showMap(model) {
+  didInsertElement(model) {
       console.log(model);
       var container = this.$('.map-display')[0];
       var options = {
         center: this.get('map').center(45.522462, -122.665674),
-        zoom: 15,
+        zoom: 12,
         styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
       };
       var fullMap = this.get('map').findMap(container, options);
       var map = this.get('map');
 
       this.model.forEach(function(location){
-        console.log(location.get('name'));
         var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
         var name = location.get('name');
         var marker = new google.maps.Marker({
@@ -36,7 +34,7 @@ export default Ember.Component.extend({
         });
         marker.setMap(fullMap);
       });
-    },
+    }
     // showRouteMap() {
     //   var container = this.$('.map-display')[0];
     //   var directionsService = this.get('map').directionsService();
@@ -66,5 +64,4 @@ export default Ember.Component.extend({
     //     }
     //   });
     // }
-  }
 });

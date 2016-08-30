@@ -1,9 +1,5 @@
 <h1>Hello world!</h1>
 
-{{#each model as |location|}}
-  <p>{{#link-to 'location' location.id}} {{location.name}} {{/link-to}}</p>
-{{/each}}
-
 {{locations-map model=model}}
 
 {{new-location saveLocation="saveLocation"}}

@@ -7,7 +7,7 @@ export default Ember.Service.extend({
   },
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
-  },
+  }
   // directionsService() {
   //   return new google.maps.DirectionsService();
   // },
