@@ -32,39 +32,39 @@ export default Ember.Component.extend({
           content: contentString
         });
         marker.addListener('click', function() {
-          infowindow.open(map, marker);
+          infowindow.open(fullMap, marker);
         });
         marker.setMap(fullMap);
       });
     },
-    showRouteMap() {
-      var container = this.$('.map-display')[0];
-      var directionsService = this.get('map').directionsService();
-      var directionsDisplay = this.get('map').directionsDisplay();
-      var options = {
-        center: this.get('map').center(45.522462, -122.665674),
-        zoom: 15
-      };
-      var fullMap = this.get('map').findMap(container, options);
-      directionsDisplay.setMap(fullMap);
-      var request = {
-        origin: this.get('first'),
-        destination: this.get('fourth'),
-        travelMode: 'BICYCLING',
-        waypoints: [
-        {
-          location: this.get('second'),
-          stopover: true
-        },{
-          location: this.get('third'),
-          stopover: true
-        }]
-      };
-      directionsService.route(request, function(result, status) {
-        if (status === 'OK') {
-          directionsDisplay.setDirections(result);
-        }
-      });
-    }
+    // showRouteMap() {
+    //   var container = this.$('.map-display')[0];
+    //   var directionsService = this.get('map').directionsService();
+    //   var directionsDisplay = this.get('map').directionsDisplay();
+    //   var options = {
+    //     center: this.get('map').center(45.522462, -122.665674),
+    //     zoom: 15
+    //   };
+    //   var fullMap = this.get('map').findMap(container, options);
+    //   directionsDisplay.setMap(fullMap);
+    //   var request = {
+    //     origin: this.get('first'),
+    //     destination: this.get('fourth'),
+    //     travelMode: 'BICYCLING',
+    //     waypoints: [
+    //     {
+    //       location: this.get('second'),
+    //       stopover: true
+    //     },{
+    //       location: this.get('third'),
+    //       stopover: true
+    //     }]
+    //   };
+    //   directionsService.route(request, function(result, status) {
+    //     if (status === 'OK') {
+    //       directionsDisplay.setDirections(result);
+    //     }
+    //   });
+    // }
   }
 });
