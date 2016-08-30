@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   second: [46.522462, -122.665674],
   third: [47.522462, -122.665674],
   fourth: [48.522462, -122.665674],
-  didInsertElement(model) {
+  didInsertElement() {
       var infoWindow;
       var container = this.$('.map-display')[0];
       var options = {
