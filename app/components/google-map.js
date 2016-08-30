@@ -23,7 +23,8 @@ export default Ember.Component.extend({
         var marker = new google.maps.Marker({
           position: latLng,
           map: fullMap,
-          title: name
+          title: name,
+          icon: '../../assets/images/entertainment.png'
         });
         var contentString = '<a href="' + location.get('website') + '"><h2>' + location.get('name') + '</h2></a>' + '<br>' + location.get('description');
         google.maps.event.addListener(marker, 'click', function() {
