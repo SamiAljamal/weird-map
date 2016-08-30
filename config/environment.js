@@ -1,4 +1,5 @@
 /* jshint node: true */
+/* global Google */
 
 module.exports = function(environment) {
   var ENV = {
