@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   second: [46.522462, -122.665674],
   third: [47.522462, -122.665674],
   fourth: [48.522462, -122.665674],
+
+  //automatically runs if component is included in template
   didInsertElement() {
       var infoWindow;
       var container = this.$('.map-display')[0];
@@ -17,13 +19,15 @@ export default Ember.Component.extend({
       };
       var fullMap = this.get('map').findMap(container, options);
 
+      // loop through locations on home page and create markers & info windows for each
       this.model.forEach(function(location){
         var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
         var name = location.get('name');
         var marker = new google.maps.Marker({
           position: latLng,
           map: fullMap,
-          title: name
+          title: name,
+          icon: '../../assets/images/entertainment.png'
         });
         var contentString = '<a href="' + location.get('streetview') + '"> <h2>' + location.get('name') + '</h2></a>' + '<a href="' + location.get('website') + '"> <p>' + "To Website" + '</p></a>' + '<br>' + location.get('description');
         google.maps.event.addListener(marker, 'click', function() {
