@@ -25,7 +25,7 @@ export default Ember.Component.extend({
           map: fullMap,
           title: name
         });
-        var contentString = '<a href="' + location.get('website') + '"><h2>' + location.get('name') + '</h2></a>' + '<br>' + location.get('description');
+        var contentString = '<a href="' + location.get('streetview') + '"> <h2>' + location.get('name') + '</h2></a>' + '<a href="' + location.get('website') + '"> <p>' + "To Website" + '</p></a>' + '<br>' + location.get('description');
         google.maps.event.addListener(marker, 'click', function() {
           if (infoWindow !== void 0) {
             infoWindow.close();
