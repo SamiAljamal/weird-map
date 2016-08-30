@@ -7,14 +7,14 @@ export default Ember.Service.extend({
   },
   center(latitude, longitude) {
     return new this.googleMaps.LatLng(latitude, longitude);
-  }
+  },
 
-  // directionsService() {
-  //   return new google.maps.DirectionsService();
-  // },
-  // directionsDisplay() {
-  //   return new google.maps.DirectionsRenderer();
-  // }
+  directionsService() {
+    return new google.maps.DirectionsService();
+  },
+  directionsDisplay() {
+    return new google.maps.DirectionsRenderer();
+  }
 
   // waypointRouting(first, second, third, fourth) {
   //   var directionsDisplay;
@@ -24,18 +24,18 @@ export default Ember.Service.extend({
   //     directionsDisplay = new google.maps.DirectionsRenderer();
   //     var portland = new google.maps.LatLng(44.850033, -122.6500523);
   //     var mapOptions = {
-  //       zoom:7,
+  //       zoom:12,
   //       center: portland
-  //     }
+  //     };
   //     map = new google.maps.Map(document.getElementById('map'), mapOptions);
   //     directionsDisplay.setMap(map);
-  //   }
+  //   };
   //   function calcRoute() {
   //     var request = {
   //       origin: first,
   //       destination: fourth,
   //       travelMode: 'BICYCLING',
-  //       waypoints[]: [{
+  //       waypoints: [{
   //         location: second,
   //         stopover: true
   //       },{
