@@ -1,45 +1,54 @@
-{{#if addNewLocation}}
-  <form>
-    <div class="form-group">
-      <label for="name">Name</label>
-      {{input value=name id="name"}}
+<div class="modal fade" id="newLocationModal" tabindex="-1" role="dialog" aria-labelledby="newLocationModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="newLocationModal">New Location</h4>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          {{input value=name id="name"}}
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          {{input value=description id="description"}}
+        </div>
+        <div class="form-group">
+          <label for="latitude">Latitude</label>
+          {{input value=latitude id="latitude" type="number"}}
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude</label>
+          {{input value=longitude id="longitude" type="number"}}
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select onchange={{action "selectCategory" value="target.value"}}>
+            <option value='Other'>Other</option>
+            <option value='Landmark'>Landmark</option>
+            <option value='Park'>Park</option>
+            <option value='Entertainment'>Entertainment</option>
+            <option value='Food'>Food</option>
+            <option value='Store'>Store</option>
+            <option value='Bar'>Bar</option>
+            <option value='Hotel'>Hotel</option>
+            <option value='Museum'>Museum</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="website">Website</label>
+          {{input value=website id="website"}}
+        </div>
+        <div class="form-group">
+          <label for="streetview">Street View Link</label>
+          {{input value=streetview id="streetview"}}
+        </div>
+        <button {{action 'saveLocation' location}} class="btn btn-primary" data-dismiss="modal">Save</button>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      {{input value=description id="description"}}
-    </div>
-    <div class="form-group">
-      <label for="latitude">Latitude</label>
-      {{input value=latitude id="latitude"}}
-    </div>
-    <div class="form-group">
-      <label for="longitude">Longitude</label>
-      {{input value=longitude id="longitude"}}
-    </div>
-    <div class="form-group">
-      <label for="category">Category</label>
-      <select onchange={{action "selectCategory" value="target.value"}}>
-        <option value='Other'>Other</option>
-        <option value='Landmark'>Landmark</option>
-        <option value='Park'>Park</option>
-        <option value='Entertainment'>Entertainment</option>
-        <option value='Food'>Food</option>
-        <option value='Store'>Store</option>
-        <option value='Bar'>Bar</option>
-        <option value='Hotel'>Hotel</option>
-        <option value='Museum'>Museum</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="website">Website</label>
-      {{input value=website id="website"}}
-    </div>
-    <div class="form-group">
-      <label for="streetview">Street View Link</label>
-      {{input value=streetview id="streetview"}}
-    </div>
-    <button {{action 'saveLocation' location}} class="btn btn-primary">Save</button>
-  </form>
-{{else}}
-  <button {{action 'locationFormShow'}} class="btn btn-primary">New Location</button>
-{{/if}}
+  </div>
+</div>
+<button class="btn btn-primary" data-toggle="modal" data-target="#newLocationModal">New Location</button>

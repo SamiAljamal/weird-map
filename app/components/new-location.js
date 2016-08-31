@@ -1,11 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  addNewLocation: false,
   actions: {
-    locationFormShow() {
-      this.set('addNewLocation', true);
-    },
     saveLocation() {
       var locationCategory;
       if (this.get('category') === undefined)

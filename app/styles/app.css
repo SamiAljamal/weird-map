@@ -19,6 +19,14 @@
   color: white;
 }
 
+.active:focus {
+  color: white;
+}
+
 h3 {
   margin: 5px 0px 0px 0px;
+}
+
+form {
+  padding: 20px;
 }
