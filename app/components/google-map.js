@@ -20,29 +20,7 @@ export default Ember.Component.extend({
       var fullMap = this.get('map').findMap(container, options);
 
       // loop through locations on home page and create markers & info windows for each
-      this.model.forEach(function(location){
-        var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
-        var name = location.get('name');
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: fullMap,
-          title: name,
-          icon: '../../assets/images/'+ location.get('category') + '.png'
-        });
-        var contentString = '<a href="' + location.get('website') + '" target="_blank"><h3>' + location.get('name') + '</h3></a>' + '<br>' + location.get('description') + '<br> <em>Category: ' + location.get('category') + '</em> <br> <a href="' + location.get('streetview') + '" target="_blank">Street View</a> <br>';
-
-        //add info window to marker, close other info window when opening a new one
-        google.maps.event.addListener(marker, 'click', function() {
-          if (infoWindow !== void 0) {
-            infoWindow.close();
-          }
-          infoWindow = new google.maps.InfoWindow({
-            content: contentString
-          });
-          infoWindow.open(fullMap, marker);
-        });
-        marker.setMap(fullMap);
-      });
+      this.get('map').addMarkers(this.model, fullMap, infoWindow, 'all');
 
     },
     actions: {
@@ -74,6 +52,32 @@ export default Ember.Component.extend({
             directionsDisplay.setDirections(result);
           }
         });
+      },
+      isCategory(model, landmark) {
+        var locationCategory = this.value;
+        console.log(this.value);
+        var infoWindow;
+        var container = this.$('.map-display')[0];
+        var options = {
+          center: this.get('map').center(45.522462, -122.665674),
+          zoom: 12,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+        };
+        var fullMap = this.get('map').findMap(container, options);
+        this.get('map').addMarkers(this.model, fullMap, infoWindow, landmark);
+      },
+      viewAll() {
+        var infoWindow;
+        var container = this.$('.map-display')[0];
+        var options = {
+          center: this.get('map').center(45.522462, -122.665674),
+          zoom: 12,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
+        };
+        var fullMap = this.get('map').findMap(container, options);
+
+        // loop through locations on home page and create markers & info windows for each
+        this.get('map').addMarkers(this.model, fullMap, infoWindow, 'all');
       }
     }
 });
