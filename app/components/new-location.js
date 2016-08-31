@@ -7,12 +7,13 @@ export default Ember.Component.extend({
       this.set('addNewLocation', true);
     },
     saveLocation() {
+      var locationCategory;
       if (this.get('category') === undefined)
       {
-        var locationCategory =  'Other';
+        locationCategory =  'Other';
       } else {
-        var locationCategory = this.get('category');
-      };
+        locationCategory = this.get('category');
+      }
       var params = {
         name: this.get('name'),
         description: this.get('description'),
