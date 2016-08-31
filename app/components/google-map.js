@@ -20,7 +20,7 @@ export default Ember.Component.extend({
       var fullMap = this.get('map').findMap(container, options);
 
       // loop through locations on home page and create markers & info windows for each
-      this.get('map').addMarkers(this.model, fullMap, infoWindow, 'all');
+      this.get('map').addMarkers(this.model, fullMap, 'all');
 
     },
     actions: {
@@ -53,10 +53,9 @@ export default Ember.Component.extend({
           }
         });
       },
-      isCategory(model, landmark) {
-        var locationCategory = this.value;
-        console.log(this.value);
-        var infoWindow;
+      isCategory(model, category) {
+        this.$('.btn').removeClass('active');
+        this.$('.btn-' + category.toLowerCase()).addClass('active');
         var container = this.$('.map-display')[0];
         var options = {
           center: this.get('map').center(45.522462, -122.665674),
@@ -64,10 +63,11 @@ export default Ember.Component.extend({
           styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
         };
         var fullMap = this.get('map').findMap(container, options);
-        this.get('map').addMarkers(this.model, fullMap, infoWindow, landmark);
+        this.get('map').addMarkers(this.model, fullMap, category);
       },
       viewAll() {
-        var infoWindow;
+        this.$('.btn').removeClass('active');
+        this.$('.btn-all').addClass('active');
         var container = this.$('.map-display')[0];
         var options = {
           center: this.get('map').center(45.522462, -122.665674),
@@ -77,7 +77,7 @@ export default Ember.Component.extend({
         var fullMap = this.get('map').findMap(container, options);
 
         // loop through locations on home page and create markers & info windows for each
-        this.get('map').addMarkers(this.model, fullMap, infoWindow, 'all');
+        this.get('map').addMarkers(this.model, fullMap, 'all');
       }
     }
 });

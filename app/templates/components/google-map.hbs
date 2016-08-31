@@ -1,23 +1,23 @@
 <div class="container">
   <button {{action 'showRouteMap'}}>Show Route Map</button>
 
-  <button name="viewAll" {{action 'viewAll' }} class="btn active">View All</button>
+  <button name="viewAll" {{action 'viewAll' }} class="btn  btn-all active">View All</button>
 
-  <button name="isLandmark" {{action 'isCategory' model 'Landmark'}} class="btn">Landmarks</button>
+  <button name="isLandmark" {{action 'isCategory' model 'Landmark'}} class="btn btn-landmark ">Landmarks</button>
 
-  <button name="isPark" {{action 'isCategory' model 'Park'}} class="btn">Parks</button>
+  <button name="isPark" {{action 'isCategory' model 'Park'}} class="btn btn-park ">Parks</button>
 
-  <button name="isEntertainment" {{action 'isCategory' model 'Entertainment'}} class="btn">Entertainment</button>
+  <button name="isEntertainment" {{action 'isCategory' model 'Entertainment'}} class="btn btn-entertainment ">Entertainment</button>
 
-  <button name="isFood" {{action 'isCategory' model 'Food'}} class="btn">Food</button>
+  <button name="isFood" {{action 'isCategory' model 'Food'}} class="btn btn-food ">Food</button>
 
-  <button name="isStore" {{action 'isCategory' model 'Store'}} class="btn">Store</button>
+  <button name="isStore" {{action 'isCategory' model 'Store'}} class="btn btn-store ">Stores</button>
 
-  <button name="isBars" {{action 'isCategory' model 'Bar'}} class="btn">Bars</button>
+  <button name="isBars" {{action 'isCategory' model 'Bar'}} class="btn btn-bar ">Bars</button>
 
-  <button name="isHotel" {{action 'isCategory' model 'Hotel'}} class="btn">Hotels</button>
+  <button name="isHotel" {{action 'isCategory' model 'Hotel'}} class="btn btn-hotel ">Hotels</button>
 
-  <button name="isMuseum" {{action 'isCategory' model 'Museum'}} class="btn">Museums</button>
+  <button name="isMuseum" {{action 'isCategory' model 'Museum'}} class="btn btn-museum ">Museums</button>
 </div>
 
 <div class="map-display"></div>

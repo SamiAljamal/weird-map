@@ -18,7 +18,8 @@ export default Ember.Service.extend({
   testAction() {
     alert('It worked!!');
   },
-  addMarkers(locationsArray, fullMap, infoWindow, locationCategory) {
+  addMarkers(locationsArray, fullMap, locationCategory) {
+    var infoWindow;
     locationsArray.forEach(function(location){
       if ((location.get('category') === locationCategory) || locationCategory === "all") {
         var latLng = {lat: location.get('latitude'), lng: location.get('longitude')};
