@@ -1,6 +1,4 @@
 <div class="container">
-  <button {{action 'showRouteMap'}}>Show Route Map</button>
-
   <button name="viewAll" {{action 'viewAll' }} class="btn  btn-all active">View All</button>
 
   <button name="isLandmark" {{action 'isCategory' model 'Landmark'}} class="btn btn-landmark ">Landmarks</button>
@@ -18,6 +16,8 @@
   <button name="isHotel" {{action 'isCategory' model 'Hotel'}} class="btn btn-hotel ">Hotels</button>
 
   <button name="isMuseum" {{action 'isCategory' model 'Museum'}} class="btn btn-museum ">Museums</button>
+
+  <button {{action 'showRouteMap'}} class="btn btn-route">Show Route Map</button>
 
   <button name="isMuseum" {{action 'initDataMap' model}} class="btn btn-datamap ">Data Map</button>
 </div>

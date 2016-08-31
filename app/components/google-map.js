@@ -78,6 +78,7 @@ export default Ember.Component.extend({
         // loop through locations on home page and create markers & info windows for each
         this.get('map').addMarkers(this.model, fullMap, 'all');
       },
+      //initiates data map which overlays information from json file
       initDataMap() {
         this.$('.btn').removeClass('active');
         this.$('.btn-datamap').addClass('active');
