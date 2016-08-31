@@ -36,6 +36,7 @@ export default Ember.Component.extend({
         });
         marker.setMap(fullMap);
       });
+      
     },
     // showRouteMap() {
     //   var container = this.$('.map-display')[0];
