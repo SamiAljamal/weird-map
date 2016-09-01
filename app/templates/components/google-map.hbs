@@ -1,4 +1,5 @@
 <div class="container">
+  <button class = "btn btn new-location">{{new-location saveLocation="saveLocation"}}</button>
   <button name="viewAll" {{action 'viewAll' }} class="btn  btn-all active">View All</button>
 
   <button name="isLandmark" {{action 'isCategory' model 'Landmark'}} class="btn btn-landmark ">Landmarks</button>
@@ -17,7 +18,10 @@
 
   <button name="isMuseum" {{action 'isCategory' model 'Museum'}} class="btn btn-museum ">Museums</button>
 
+  <button name="isOther" {{action 'isCategory' model 'Other'}} class="btn btn-other ">Other</button>
+
   <button name="isMuseum" {{action 'initDataMap' model}} class="btn btn-datamap ">Data Map</button>
+
 </div>
 
 <div class="map-display"></div>
