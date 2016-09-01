@@ -24,6 +24,7 @@ export default Ember.Component.extend({
   showFilteredOther: false,
   filterByPark: Ember.computed.filterBy('model', 'category', 'Park'),
   showFilteredPark: false,
+  showLocationsSelected: false,
 
   //automatically runs if component is included in template
   didInsertElement() {
@@ -145,13 +146,20 @@ export default Ember.Component.extend({
       valueHasChanged(location, isChecked){
         if(isChecked) {
           this.get('selectedItems').addObject(location);
+          this.set('showLocationsSelected', true)
         }
         else {
           this.get('selectedItems').removeObject(location);
+          if (this.get('selectedItems').length === 0) {
+            this.set('showLocationsSelected', false);
+          }
         }
       },
       deleteSelectedLocation(location) {
         this.get('selectedItems').removeObject(location);
+        if (this.get('selectedItems').length === 0) {
+          this.set('showLocationsSelected', false);
+        }
       },
       isCategory(model, category) {
         this.$('.btn').removeClass('active');
@@ -264,7 +272,7 @@ export default Ember.Component.extend({
 
         var legend = document.getElementById('legend');
         var div = document.createElement('div');
-        div.innerHTML = '<h4>Bars per neighborhood</h4>' + 
+        div.innerHTML = '<h4>Bars per neighborhood</h4>' +
         '<ul>' +
         '<li><h5><div class="legend-color" id="zero"></div> = 0</h5></li>' +
         '<li><h5><div class="legend-color" id="one"></div> = 3-1</h5></li>' +
