@@ -158,7 +158,7 @@
   <div class="col-sm-2">
     {{#if showLocationsSelected}}
     <h4>Selected Locations</h4>
-    <ol>
+    <ol class="selected-locations">
       {{#each selectedItems as |location|}}
       <li> <h5>{{location.name}} <span {{action 'deleteSelectedLocation' location}} class="glyphicon glyphicon-trash"></span></h5></li>
       {{/each}}

@@ -11,6 +11,10 @@
   width: 300px;
 }
 
+.selected-locations {
+  list-style-type: upper-alpha;
+}
+
 #twenty-five {
   background-color: #a50f15;
 }
