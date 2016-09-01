@@ -261,6 +261,19 @@ export default Ember.Component.extend({
             bars > 0 ? colors[1] :
             colors[0];
         }
+
+        var legend = document.getElementById('legend');
+        var div = document.createElement('div');
+        div.innerHTML = '<h4>Bars per neighborhood</h4>' + 
+        '<ul>' +
+        '<li><h5><div class="legend-color" id="zero"></div> = 0</h5></li>' +
+        '<li><h5><div class="legend-color" id="one"></div> = 3-1</h5></li>' +
+        '<li><h5><div class="legend-color" id="three"></div> = 15-3</h5></li>' +
+        '<li><h5><div class="legend-color" id="fifteen"></div> = 25-15</h5></li>' +
+        '<li><h5><div class="legend-color" id="twenty-five"></div> = more than 25</h5></li>';
+        legend.appendChild(div);
+
+        fullMap.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
       }
     }
 });
