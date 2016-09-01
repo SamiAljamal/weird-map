@@ -30,3 +30,62 @@ h3 {
 form {
   padding: 20px;
 }
+
+.btn-landmark {
+  background-color: #C500CC;
+  color: white;
+  outline: none !important;
+}
+
+.btn-park {
+  background-color: #F50505;
+  color: white;
+  outline: none !important;
+}
+
+.btn-entertainment {
+  background-color: #FFCC66;
+  color: white;
+  outline: none !important;
+}
+
+.btn-store {
+  background-color: #540408;
+  color: white;
+  outline: none !important;
+}
+
+.btn-food {
+  background-color: #32C962;
+  color: white;
+  outline: none !important;
+}
+
+.btn-bar {
+  background-color: #5821CF;
+  color: white;
+  outline: none !important;
+}
+
+.btn-museum {
+  background-color: #E88F00;
+  color: white;
+  outline: none !important;
+}
+
+.btn-hotel {
+  background-color: #910101;
+  color: white;
+  outline: none !important;
+}
+
+.btn-other {
+  background-color: #3374FF;
+  color: white;
+  outline: none !important;
+}
+
+.new-location {
+  background-color: #006600;
+  color:white;
+}
