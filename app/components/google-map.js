@@ -101,13 +101,13 @@ export default Ember.Component.extend({
         var fullMap = this.get('map').findMap(container, options);
 
         // Create the state data layer and load the GeoJson Data
-        var stateLayer = new google.maps.Data();
-        stateLayer.loadGeoJson('https://gist.githubusercontent.com/SamiAljamal/6dc9409bbfa932e21669f53e1de7672b/raw/52c35690556456ad8cff634600dc55d007a71a8b/porltand.json');
+        var neighborhood = new google.maps.Data();
+        neighborhood.loadGeoJson('https://gist.githubusercontent.com/SamiAljamal/6dc9409bbfa932e21669f53e1de7672b/raw/962ec9c9e63a0bf3e946fb59f980dabb38a78625/porltand.json');
 
         // Set and apply styling to the stateLayer
-        stateLayer.setStyle(function(feature) {
+        neighborhood.setStyle(function(feature) {
           return {
-            fillColor: getColor(feature.getProperty('COLI')), // call function to get color for state based on the COLI (Cost of Living Index)
+            fillColor: getColor(feature.getProperty('bars')), // call function to get color for state based on the COLI (Cost of Living Index)
             fillOpacity: 0.8,
             strokeColor: '#b3b3b3',
             strokeWeight: 1,
@@ -116,24 +116,24 @@ export default Ember.Component.extend({
         });
 
         // Add mouseover and mouse out styling for the GeoJSON State data
-        stateLayer.addListener('mouseover', function(e) {
-          stateLayer.overrideStyle(e.feature, {
+        neighborhood.addListener('mouseover', function(e) {
+          neighborhood.overrideStyle(e.feature, {
             strokeColor: '#2a2a2a',
             strokeWeight: 2,
             zIndex: 2
           });
         });
 
-        stateLayer.addListener('mouseout', function(e) {
-          stateLayer.revertStyle();
+        neighborhood.addListener('mouseout', function(e) {
+          neighborhood.revertStyle();
         });
 
         // Adds an info window on click with in a state that includes the state name and COLI
-        stateLayer.addListener('click', function(e) {
+        neighborhood.addListener('click', function(e) {
           console.log(e);
           infoWindow.setContent('<div style="line-height:1.00;overflow:hidden;white-space:nowrap;">' +
-            e.feature.getProperty('NAME') + '<br> COLI: ' +
-            e.feature.getProperty('COLI') + '</div>');
+            e.feature.getProperty('name') + '<br> bars: ' +
+            e.feature.getProperty('bars') + '</div>');
 
           var anchor = new google.maps.MVCObject();
           anchor.set("position", e.latLng);
@@ -142,10 +142,10 @@ export default Ember.Component.extend({
 
 
         // Final step here sets the stateLayer GeoJSON data onto the map
-        stateLayer.setMap(fullMap);
+        neighborhood.setMap(fullMap);
 
         // returns a color based on the value given when the function is called
-        function getColor(coli) {
+        function getColor(bars) {
           var colors = [
             '#d1ccad',
             '#c2c083',
@@ -154,10 +154,10 @@ export default Ember.Component.extend({
             '#89a844'
           ];
 
-          return coli >= 121 ? colors[4] :
-            coli > 110 ? colors[3] :
-            coli > 102.5 ? colors[2] :
-            coli > 100 ? colors[1] :
+          return bars >= 30 ? colors[4] :
+            bars > 20 ? colors[3] :
+            bars > 5 ? colors[2] :
+            bars > 0 ? colors[1] :
             colors[0];
         }
       }
