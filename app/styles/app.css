@@ -1,3 +1,13 @@
+
+
+.navbar-header a{
+  color: #FFE20A;
+}
+
+.navbar-inverse {
+  background-color: #171A1C;
+}
+
 .map-display {
   height: 700px;
   width: 100%;

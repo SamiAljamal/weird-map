@@ -23,6 +23,9 @@ export default Ember.Component.extend({
 
     },
     actions: {
+      saveLocation(params) {
+        this.sendAction('saveLocation', params);
+      },
       showRouteMap() {
         this.$('.btn').removeClass('active');
         this.$('.btn-route').addClass('active');
