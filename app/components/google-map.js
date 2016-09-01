@@ -147,16 +147,16 @@ export default Ember.Component.extend({
         // returns a color based on the value given when the function is called
         function getColor(bars) {
           var colors = [
-            '#d1ccad',
-            '#c2c083',
-            '#cbd97c',
-            '#acd033',
-            '#89a844'
+            '#fee5d9',
+            '#fcae91',
+            '#fb6a4a',
+            '#de2d26',
+            '#a50f15'
           ];
 
-          return bars >= 30 ? colors[4] :
-            bars > 20 ? colors[3] :
-            bars > 5 ? colors[2] :
+          return bars >= 25 ? colors[4] :
+            bars > 15 ? colors[3] :
+            bars > 3 ? colors[2] :
             bars > 0 ? colors[1] :
             colors[0];
         }
