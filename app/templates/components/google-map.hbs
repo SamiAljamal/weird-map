@@ -17,9 +17,146 @@
 
   <button name="isMuseum" {{action 'isCategory' model 'Museum'}} class="btn btn-museum ">Museums</button>
 
-  <button {{action 'showRouteMap'}} class="btn btn-route">Show Route Map</button>
-
   <button name="isMuseum" {{action 'initDataMap' model}} class="btn btn-datamap ">Data Map</button>
 </div>
 
 <div class="map-display"></div>
+<div class="route-display"></div>
+
+<div class="container" align="middle">
+<h2>Choose Locations to Create a directions Itinerary</h2>
+<button {{action "showRouteMap"}} class="btn btn-success btn-lg">Show Map</button>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button {{action 'hideAllOptions'}} class="btn btn-primary">Hide All Locations</button>
+  <button {{action 'showFilteredLocations'}} class="btn btn-primary">See All Location</button>
+</div>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button {{action 'showFilteredBars'}} class="btn btn-info btn-sm">showFilteredBars</button>
+  <button {{action 'showFilteredStores'}} class="btn btn-info btn-sm">showFilteredStores</button>
+  <button {{action 'showFilteredMuseums'}} class="btn btn-info btn-sm">showFilteredMuseums</button>
+  <button {{action 'showFilteredLandmarks'}} class="btn btn-info btn-sm">showFilteredLandmarks</button>
+</div>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button {{action 'showFilteredHotels'}} class="btn btn-info btn-sm">showFilteredHotels</button>
+  <button {{action 'showFilteredFood'}} class="btn btn-info btn-sm">showFilteredFood</button>
+  <button {{action 'showFilteredEntertainment'}} class="btn btn-info btn-sm">showFilteredEntertainment</button>
+  <button {{action 'showFilteredOther'}} class="btn btn-info btn-sm">showFilteredOther</button>
+  <button {{action 'showFilteredPark'}} class="btn btn-info btn-sm">showFilteredPark</button>
+</div>
+    <hr>
+<div class="row">
+  <div class="col-xs-8">
+    {{#if showFilteredLocations}}
+    <form >
+      {{#each sortedLocations as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredBars}}
+    <form >
+      {{#each filterByBar as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredStores}}
+    <form >
+      {{#each filterByStore as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredMuseums}}
+    <form >
+      {{#each filterByMuseum as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredLandmarks}}
+    <form >
+      {{#each filterByLandmark as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredHotels}}
+    <form >
+      {{#each filterByHotel as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredFood}}
+    <form >
+      {{#each filterByFood as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredEntertainment}}
+    <form >
+      {{#each filterByEntertainment as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredOther}}
+    <form >
+      {{#each filterByOther as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+    {{#if showFilteredPark}}
+    <form >
+      {{#each filterByPark as |location|}}
+      <div class="well">
+      <label for={{location.name}}>{{location.name}} -- <em>{{location.category}}</em></label>
+      <input type="checkbox" onChange= {{action (action "valueHasChanged" location) value="target.checked"}}>
+      </div>
+      {{/each}}
+    </form>
+    {{/if}}
+  </div>
+  <div class="col-sm-2">
+    <h4>Selected Locations</h4>
+    <ol>
+      {{#each selectedItems as |location|}}
+      <li> <h5>{{location.name}} <span {{action 'deleteSelectedLocation' location}} class="glyphicon glyphicon-trash"></span></h5></li>
+      {{/each}}
+    </ol>
+</div>
+  </div>
+</div>
