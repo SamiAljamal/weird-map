@@ -24,6 +24,8 @@ export default Ember.Component.extend({
     },
     actions: {
       showRouteMap() {
+        this.$('.btn').removeClass('active');
+        this.$('.btn-route').addClass('active');
         var container = this.$('.map-display')[0];
         var directionsService = this.get('map').directionsService();
         var directionsDisplay = this.get('map').directionsDisplay();
