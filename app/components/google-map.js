@@ -96,7 +96,8 @@ export default Ember.Component.extend({
         var directionsDisplay = this.get('map').directionsDisplay();
         var options = {
           center: this.get('map').center(45.522462, -122.665674),
-          zoom: 15
+          zoom: 15,
+          styles: [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
         };
         var fullMap = this.get('map').findMap(container, options);
         directionsDisplay.setMap(fullMap);
