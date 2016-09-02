@@ -9,7 +9,7 @@
 
 ## Description
 
-The Portland Weird Map is a geographical display of "weird" locations around Oregon's biggest city. In addition to typical features present in [Google Maps API](https://developers.google.com/maps/web/) applications (zooming, scrolling, street, and satellite views), the Portland Weird Map allows users to interact with how data points are displayed with category filtering. A form is also present if the user wants to contribute and add their own weird location to the map. All data the user inputs is stored and retrieved using Google's [Firebase](http://www.firebase.com).
+The Portland Weird Map is a geographical display of "weird" locations around Oregon's biggest city. In addition to typical features present in [Google Maps API](https://developers.google.com/maps/web/) applications (zooming, scrolling, street, and satellite views), the Portland Weird Map allows users to interact with how data points are displayed with category filtering. A form is also present if the user wants to contribute and add their own weird location to the map. All data the user inputs is stored and retrieved using Google's [Firebase](http://www.firebase.com). The ability to route a bike map between 2 and 5 locations is also available to the user. A list of locations is displayed by category and can be added to the route map by checking their individual boxes. Lastly, the map contains a Data Map that shows a color coded cluster map of bars in Multnomah County by neighborhood.
 
 ## Specifications
 The capabilities of the Portland Weird Map are as follows:
@@ -77,10 +77,10 @@ HTML5, CSS, JavaScript, Bootstrap.css, EmberJS, Google Maps API, Firebase, Leafl
 
 ## Contact
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-*
+* [Sami Al-Jamal](https://github.com/SamiAljamal)
+* [Patrick Lipscomb](https://github.com/PatrickCLipscomb)
+* [Adam Luchini](https://github.com/adamluchini)
+* [George Olson](https://github.com/georgeolson92)
 
 ## License
 This software is licensed under the MIT license
