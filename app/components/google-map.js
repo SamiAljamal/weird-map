@@ -272,12 +272,12 @@ export default Ember.Component.extend({
 
         var legend = document.getElementById('legend');
         var div = document.createElement('div');
-        div.innerHTML = '<h4>Bars per neighborhood</h4>' +
+        div.innerHTML = '<h4>Total Bars in Each Neighborhood</h4>' +
         '<ul>' +
         '<li><h5><div class="legend-color" id="zero"></div> = 0</h5></li>' +
-        '<li><h5><div class="legend-color" id="one"></div> = 3-1</h5></li>' +
-        '<li><h5><div class="legend-color" id="three"></div> = 15-3</h5></li>' +
-        '<li><h5><div class="legend-color" id="fifteen"></div> = 25-15</h5></li>' +
+        '<li><h5><div class="legend-color" id="one"></div> = 1-3</h5></li>' +
+        '<li><h5><div class="legend-color" id="three"></div> = 3-15</h5></li>' +
+        '<li><h5><div class="legend-color" id="fifteen"></div> = 15-25</h5></li>' +
         '<li><h5><div class="legend-color" id="twenty-five"></div> = more than 25</h5></li>';
         legend.appendChild(div);
 
